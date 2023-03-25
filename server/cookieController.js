@@ -6,7 +6,7 @@ const cookieController = {};
 cookieController.setSSIDCookie = (req, res, next) => {
   // write code here
   res.cookie('ssid', res.locals.id, {
-    expires: new Date(Date.now() + 30000),
+    expires: new Date(Date.now() + 300000),
     httpOnly: true,
   });
   return next();
