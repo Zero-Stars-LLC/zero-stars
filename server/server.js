@@ -13,18 +13,22 @@ app.use(express.json());
 /**
  * root
  */
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/index.html'));
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/index.html'));
+// });
+
+if (process.env.NODE_ENV === 'production') {
+  app.use('/', express.static(path.join(__dirname, '../build')));
+}
 
 //handle users signing up
-app.get('/signup', userController.createUser, (req, res) => {
+app.post('/signup', userController.createUser, (req, res) => {
   //swap out json for redirect route
   return res.status(200).json({});
 });
 
 //handle users logging up
-app.get('/login', userController.createUser, (req, res) => {
+app.post('/login', userController.createUser, (req, res) => {
   //swap out json for redirect route
   return res.status(200).json({});
 });
