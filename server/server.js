@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const cookieParser = require('cookie-parser');
 const userController = require('./userController');
+const cookieController = require('./cookieController');
+const sessionController = require('./sessionController');
 // const apiRouter = require('./routes/api.js');
 
 const PORT = 3000;
@@ -9,6 +12,7 @@ const PORT = 3000;
  * handle parsing request body
  */
 app.use(express.json());
+app.use(cookieParser());
 
 /**
  * root
@@ -18,16 +22,26 @@ app.get('/', (req, res) => {
 });
 
 //handle users signing up
-app.get('/signup', userController.createUser, (req, res) => {
-  //swap out json for redirect route
-  return res.status(200).json({});
-});
+app.post(
+  '/signup',
+  userController.createUser,
+  cookieController.setSSIDCookie,
+  (req, res) => {
+    //swap out json for redirect route
+    return res.status(200).json({});
+  }
+);
 
 //handle users logging up
-app.get('/login', userController.createUser, (req, res) => {
-  //swap out json for redirect route
-  return res.status(200).json({});
-});
+app.post(
+  '/login',
+  userController.login,
+  cookieController.setSSIDCookie,
+  (req, res) => {
+    //swap out json for redirect route
+    return res.status(200).json({});
+  }
+);
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) =>
