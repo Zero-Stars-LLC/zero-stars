@@ -33,6 +33,7 @@ app.get('/login', userController.createUser, (req, res) => {
 // get request to api
 // calls api function with places id
 // send data requested data back to frontend
+
 app.get('/api', apiRequestHandler.getData, (req, res) => {
   return res.status(200).json(req.locals);
 });
