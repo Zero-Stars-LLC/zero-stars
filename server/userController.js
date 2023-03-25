@@ -7,7 +7,7 @@ userController.createUser = async (req, res, next) => {
   //destructure request body to get passed in email, username and password
   const { email, username, password } = req.body;
   //verify that both the username and password were passed in
-  if ((email, username && password)) {
+  if (email && username && password) {
     //initialize query variable
     const insert =
       'INSERT INTO Users (email, username, password) VALUES ($1, $2, $3)  RETURNING userid;';

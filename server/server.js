@@ -21,6 +21,18 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
+// if (process.env.NODE_ENV === 'production') {
+//   app.use('/', express.static(path.join(__dirname, '../build')));
+// }
+
+app.get('/signup', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/index.html'));
+});
+
+app.get('/login', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/index.html'));
+});
+
 //handle users signing up
 app.post(
   '/signup',
@@ -28,7 +40,7 @@ app.post(
   cookieController.setSSIDCookie,
   (req, res) => {
     //swap out json for redirect route
-    return res.status(200).json({});
+    return res.status(200).json({ value: true });
   }
 );
 
