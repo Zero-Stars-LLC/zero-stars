@@ -5,29 +5,6 @@ const userController = require('./userController');
 // const apiRouter = require('./routes/api.js');
 
 const PORT = 3000;
-/**
- * handle parsing request body
- */
-app.use(express.json());
-
-/**
- * root
- */
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/index.html'));
-});
-
-//handle users signing up
-app.get('/signup', userController.createUser, (req, res) => {
-  //swap out json for redirect route
-  return res.status(200).json({});
-});
-
-//handle users logging up
-app.get('/login', userController.createUser, (req, res) => {
-  //swap out json for redirect route
-  return res.status(200).json({});
-});
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) =>
