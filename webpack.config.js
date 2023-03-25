@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -7,6 +8,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: __dirname + '/build',
+    publicPath: '/',
     publicPath: '/',
   },
   devServer: {
@@ -21,7 +23,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: __dirname + '/client/index.html',
+      template: __dirname + '/client/index.html',
     }),
+    new MiniCssExtractPlugin(),
     new MiniCssExtractPlugin(),
   ],
   module: {
@@ -40,7 +44,7 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
           // Translates CSS into CommonJS
@@ -48,7 +52,12 @@ module.exports = {
             loader: 'css-loader',
             options: { sourceMap: true, importLoaders: 1 },
           },
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true, importLoaders: 1 },
+          },
           // Creates `style` nodes from JS strings
+          //   'style-loader',
           //   'style-loader',
           // // Compiles Sass to CSS
           { loader: 'sass-loader', options: { sourceMap: true } },

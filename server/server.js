@@ -6,6 +6,7 @@ const userController = require('./userController');
 const cookieController = require('./cookieController');
 const sessionController = require('./sessionController');
 // const apiRouter = require('./routes/api.js');
+const apiRequestHandler = require('./apiRequestHandler');
 
 const PORT = 3000;
 /**
