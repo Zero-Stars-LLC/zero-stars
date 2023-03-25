@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const userController = require('./userController');
 // const apiRouter = require('./routes/api.js');
+const apiRequestHandler = require('./apiRequestHandler');
 
 const PORT = 3000;
 /**
@@ -27,6 +28,13 @@ app.get('/signup', userController.createUser, (req, res) => {
 app.get('/login', userController.createUser, (req, res) => {
   //swap out json for redirect route
   return res.status(200).json({});
+});
+
+// get request to api
+// calls api function with places id
+// send data requested data back to frontend
+app.get('/api', apiRequestHandler.getData, (req, res) => {
+  return res.status(200).json(req.locals);
 });
 
 // catch-all route handler for any requests to an unknown route
