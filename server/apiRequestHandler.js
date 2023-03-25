@@ -1,10 +1,12 @@
 const apiHandler = {};
 
 apiHandler.getData = (req, res, next) => {
-  const dummy_url =
-    'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJAzVd6_BYwokRahMskpFCrFg&fields=name,rating,reviews&key=AIzaSyChCEgMt6qarWjaO3FL9aL9cJiPmd6iRXk';
+  const placeId = req.body.place_id; //req.body.place_id;
+  // const dummy_url =
+  //   'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJAzVd6_BYwokRahMskpFCrFg&fields=name,rating,reviews&key=AIzaSyChCEgMt6qarWjaO3FL9aL9cJiPmd6iRXk';
+  const real_url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews&key=AIzaSyChCEgMt6qarWjaO3FL9aL9cJiPmd6iRXk`;
   // sarabeths restaurant
-  fetch(dummy_url)
+  fetch(real_url)
     .then((response) => response.json())
     // obj of data // get from result property
     .then((restuarant_data) => {
@@ -19,7 +21,7 @@ apiHandler.getData = (req, res, next) => {
         time: review.time,
       }));
 
-      req.locals = reviews;
+      res.locals.reviews = reviews;
       next();
     })
     .catch((err) => {

@@ -35,7 +35,7 @@ app.get('/login', userController.createUser, (req, res) => {
 // send data requested data back to frontend
 
 app.get('/api', apiRequestHandler.getData, (req, res) => {
-  return res.status(200).json(req.locals);
+  return res.status(200).json(res.locals.reviews);
 });
 
 // catch-all route handler for any requests to an unknown route
