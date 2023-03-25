@@ -6,7 +6,8 @@ const SearchBar = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
+    console.log('button clicked!')
+    console.log(placeId)
     // Handle incomplete submissions
     if (!placeId) {
       alert('Please add Place ID');
@@ -21,14 +22,16 @@ const SearchBar = (props) => {
   return (
     <div className='SearchBar'>
       <form className='SearchBarForm' onSubmit={onSubmit}>
+        <div>
         <label>Enter Your Place ID: </label>
         <input
           type='text'
           onChange={(e) => setPlaceId(e.target.value)}
         />
-      </form>
+        </div>
       <br></br>
       <input id='submitForm' type='submit' value='Submit' />
+      </form>
     </div>
   );
 };

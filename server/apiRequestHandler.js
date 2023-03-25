@@ -1,7 +1,7 @@
 const apiHandler = {};
 
 apiHandler.getData = (req, res, next) => {
-  const placeId = req.body.place_id; //req.body.place_id;
+  const placeId = req.params.place_id; //req.body.place_id ChIJAzVd6_BYwokRahMskpFCrFg
   // const dummy_url =
   //   'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJAzVd6_BYwokRahMskpFCrFg&fields=name,rating,reviews&key=AIzaSyChCEgMt6qarWjaO3FL9aL9cJiPmd6iRXk';
   const real_url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews&key=AIzaSyChCEgMt6qarWjaO3FL9aL9cJiPmd6iRXk`;

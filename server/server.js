@@ -39,7 +39,7 @@ app.post('/login', userController.createUser, (req, res) => {
 // calls api function with places id
 // send data requested data back to frontend
 
-app.get('/api', apiRequestHandler.getData, (req, res) => {
+app.get('/api/:place_id', apiRequestHandler.getData, (req, res) => {
   return res.status(200).json(res.locals.reviews);
 });
 
