@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar';
+import GoogleButton from 'react-google-button';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -40,13 +41,13 @@ const App = () => {
             </button>
           </div>
           <div>
-            <p>Don't have an account?</p>
+            <p className='fs-4'>Don't have an account?</p>
           </div>
           <div className='SignUpButtons mb-4'>
             <div className='col'>
-              <div class='col container ms-1 mb-3'>
+              <div class='col container mb-3'>
                 <button
-                  className='btn btn-sm btn-light '
+                  className='btn btn-light '
                   id='Sign Up'
                   onClick={() => handleEntry('/signup')}
                 >
@@ -54,17 +55,17 @@ const App = () => {
                 </button>
               </div>
               {/* </div> */}
-              <div class='row ms-1'>
+              <div class='row'>
                 <p clasName='fs-1'>Or</p>
               </div>
-              <div className='GoogleButton container mb-5 ms-1 col'>
-                <button
-                  className='btn btn-sm btn-light'
+              <div className='GoogleButton container mb-5 col d-flex justify-content-center'>
+                <GoogleButton
+                  // className='btn btn-light'
                   id='google'
+                  // type="light"
                   onClick={() => handleEntry('/auth/google')}
-                >
-                  Use Google
-                </button>
+                />
+                {/* <GoogleButton /> */}
               </div>
             </div>
           </div>
