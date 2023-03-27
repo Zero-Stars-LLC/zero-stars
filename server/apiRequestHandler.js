@@ -1,7 +1,12 @@
 const apiHandler = {};
 
-apiHandler.getData = (req, res, next) => {
-  const placeId = req.params.place_id; //req.body.place_id ChIJAzVd6_BYwokRahMskpFCrFg
+apiHandler.getData = async (req, res, next) => {
+  const restQuery = encodeURI(req.params.restuarant_details); //req.body.place_id ChIJAzVd6_BYwokRahMskpFCrFg
+  // console.log(restQuery);
+  const getPlaceIdURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${restQuery}&key=AIzaSyChCEgMt6qarWjaO3FL9aL9cJiPmd6iRXk`;
+  let placeId = await fetch(getPlaceIdURL);
+  const data = await placeId.json();
+  placeId = data.results[0].place_id;
   // const dummy_url =
   //   'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJAzVd6_BYwokRahMskpFCrFg&fields=name,rating,reviews&key=AIzaSyChCEgMt6qarWjaO3FL9aL9cJiPmd6iRXk';
   const real_url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews&reviews_sort=newest&key=AIzaSyChCEgMt6qarWjaO3FL9aL9cJiPmd6iRXk`;

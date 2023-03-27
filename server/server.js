@@ -32,7 +32,7 @@ app.use(
  * root
  */
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use('/', express.static(path.join(__dirname, '../build')));
 }
 
@@ -86,15 +86,7 @@ app.get('/google/oauth', userController.callback, (req, res) => {
 // get request to api
 // calls api function with places id
 // send data requested data back to frontend
-app.get('/api/:place_id', apiRequestHandler.getData, (req, res) => {
-  return res.status(200).json(res.locals.reviews);
-});
-
-// get request to api
-// calls api function with places id
-// send data requested data back to frontend
-
-app.get('/api/:place_id', apiRequestHandler.getData, (req, res) => {
+app.get('/api/:restuarant_details', apiRequestHandler.getData, (req, res) => {
   return res.status(200).json(res.locals.reviews);
 });
 
