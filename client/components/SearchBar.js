@@ -20,17 +20,19 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div className='SearchBar'>
-      <form className='SearchBarForm' onSubmit={onSubmit}>
+    <div className='SearchBar container d-flex justify-content-center'>
+      <form className='SearchBarForm align-items-center mx-auto' onSubmit={onSubmit}>
         <div>
-        <label>Enter Your Place ID: </label>
-        <input
-          type='text'
-          onChange={(e) => setPlaceId(e.target.value)}
-        />
+        <label className='col-form-label'>Enter Your Place ID: </label>
+        <div>
+          <input className='form-control'
+            type='text'
+            onChange={(e) => setPlaceId(e.target.value)}
+          />
+        </div>
         </div>
       <br></br>
-      <input id='submitForm' type='submit' value='Submit' />
+      <input id='submitForm' className='btn btn-danger' type='submit' value='See My Reviews' />
       </form>
     </div>
   );

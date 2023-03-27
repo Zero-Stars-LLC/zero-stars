@@ -4,11 +4,23 @@ const Review = (props) => {
   console.log('props.name: ', props.name);
 
   return (
-    <div className="Review">
-      <p>Name: {props.name}</p>
-      <p>Rating: {props.rating}</p>
-      <p>Text: {props.text} </p>
+    <div class='card text-start'>
+      <div class='card-header'>{props.time}</div>
+      <div class='card-body'>
+        <h5 class='card-title'>Rating: {props.rating}</h5>
+        <p class='card-text fst-italic font-monospace'>
+          "{props.text}" -- {props.name}
+        </p>
+        <a href={props.author_url} class='btn btn-danger'>
+          More Info
+        </a>
+      </div>
     </div>
+
+    // <div className='Review text-start text-wrap'>
+    //     <h4>Name: </h4> <p>{props.name}</p>
+    //     <p className='fst-italic font-monospace'> {props.text} </p>
+    // </div>
   );
 };
 

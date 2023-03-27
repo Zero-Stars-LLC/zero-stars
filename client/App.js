@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 const App = () => {
   const navigate = useNavigate();
@@ -19,16 +19,28 @@ const App = () => {
   };
 
   return (
-    <div>
-      <button id="Login" onClick={() => handleEntry('/login')}>
-        Login
-      </button>
-      <button id="Sign Up" onClick={() => handleEntry('/signup')}>
-        Sign Up
-      </button>
-      <button id="google" onClick={() => handleEntry('/auth/google')}>
-        Login with google
-      </button>
+    <div className='bg-dark text-light p-5'>
+      <div className='container'>
+        <div className='container mb-5'>
+          <h1>Zero Stars</h1>
+          <h4>Monitor your negative reviews.</h4>
+        </div>
+        <div className='LoginButton container mb-5'>
+          <button className='btn btn-light' id='Login' onClick={() => handleEntry('/login')}>
+            Login
+          </button>
+        </div>
+        <div className='SignUpButton container mb-5'>
+          <button className='btn btn-light' id='Sign Up' onClick={() => handleEntry('/signup')}>
+            Sign Up
+          </button>
+        </div>
+        <div className='GoogleButton container mb-5'>
+          <button className='btn btn-light' id='google' onClick={() => handleEntry('/auth/google')}>
+            Login with google
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
