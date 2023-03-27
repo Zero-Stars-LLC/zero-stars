@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Review from './Review.js';
+import ReactDOM from 'react-dom';
+import { Fireworks } from '@fireworks-js/react';
+const fireworksContainer = document.getElementById('fireworks-container');
 
 const Results = (props) => {
   console.log('props.reviews: ', props.reviews);
@@ -20,7 +23,35 @@ const Results = (props) => {
 
   return (
     <section className='header bg-dark text-light p-5'>
-      {!props.reviews.length && props.received ? <p>No bad reviews! </p> : <div className='ResultsContainer container'>{review}</div>}
+      {!props.reviews.length && props.received ? (
+        <p>
+          No bad reviews!
+          {fireworksContainer &&
+            ReactDOM.createPortal(
+              <Fireworks
+                options={{
+                  rocketsPoint: {
+                    min: 0,
+                    max: 100,
+                  },
+                  autoStop: true,
+                  duration: 5000,
+                }}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'fixed',
+                  top: 0,
+                  left: 0,
+                  zIndex: 0,
+                }}
+              />,
+              fireworksContainer
+            )}
+        </p>
+      ) : (
+        <div className='ResultsContainer container'>{review}</div>
+      )}
     </section>
   );
 };
