@@ -12,6 +12,10 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': 'http://localhost:3000',
+      '/signup': 'http://localhost:3000',
+      '/login': 'http://localhost:3000',
+      '/auth/google': 'http://localhost:3000',
+      '/google/oauth': 'http://localhost:3000',
     },
     hot: true,
     historyApiFallback: true,
@@ -38,7 +42,7 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
           // Translates CSS into CommonJS
@@ -48,8 +52,9 @@ module.exports = {
           },
           // Creates `style` nodes from JS strings
           //   'style-loader',
+          //   'style-loader',
           // // Compiles Sass to CSS
-          { loader: 'sass-loader', options: { sourceMap: true } },
+          // { loader: 'sass-loader', options: { sourceMap: true } },
         ],
       },
     ],
