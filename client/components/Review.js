@@ -5,7 +5,7 @@ const Review = (props) => {
 
   return (
     <div class='card text-start'>
-      <div class='card-header'>{props.time}</div>
+      <div class='card-header'>{props.relative_time}</div>
       <div class='card-body'>
         <h5 class='card-title'>Rating: {props.rating}</h5>
         <p class='card-text fst-italic font-monospace'>
