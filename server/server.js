@@ -70,7 +70,7 @@ app.post(
   cookieController.setSSIDCookie,
   (req, res) => {
     //swap out json for redirect route
-    return res.status(200).json({});
+    return res.status(200).json({ value: true });
   }
 );
 
