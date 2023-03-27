@@ -35,7 +35,7 @@ const Homepage = () => {
   };
 
   return (
-    <div>
+    <div className='bg-dark text-light'>
         <Navbar />
         <section className='header bg-dark text-light p-5 text-center'>
           <div className='container bd-dark'>
