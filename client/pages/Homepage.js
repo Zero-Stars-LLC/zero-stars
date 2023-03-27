@@ -12,6 +12,7 @@ const Homepage = () => {
     rating: '',
     text: '',
     time: '',
+    relative_time: ''
   }]);
 
   // Get reviews

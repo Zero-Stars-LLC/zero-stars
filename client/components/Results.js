@@ -12,6 +12,7 @@ const Results = (props) => {
             author_url={props.reviews[i].author_url}
             rating={props.reviews[i].rating}
             time={props.reviews[i].time}
+            relative_time={props.reviews[i].relative_time}
         />)
     }
 
