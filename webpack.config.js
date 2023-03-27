@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -9,13 +8,14 @@ module.exports = {
     filename: 'bundle.js',
     path: __dirname + '/build',
     publicPath: '/',
-    publicPath: '/',
   },
   devServer: {
     proxy: {
       '/api': 'http://localhost:3000',
       '/signup': 'http://localhost:3000',
       '/login': 'http://localhost:3000',
+      '/auth/google': 'http://localhost:3000',
+      '/google/oauth': 'http://localhost:3000',
     },
     hot: true,
     historyApiFallback: true,
@@ -23,9 +23,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: __dirname + '/client/index.html',
-      template: __dirname + '/client/index.html',
     }),
-    new MiniCssExtractPlugin(),
     new MiniCssExtractPlugin(),
   ],
   module: {
@@ -52,15 +50,11 @@ module.exports = {
             loader: 'css-loader',
             options: { sourceMap: true, importLoaders: 1 },
           },
-          {
-            loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 1 },
-          },
           // Creates `style` nodes from JS strings
           //   'style-loader',
           //   'style-loader',
           // // Compiles Sass to CSS
-          { loader: 'sass-loader', options: { sourceMap: true } },
+          // { loader: 'sass-loader', options: { sourceMap: true } },
         ],
       },
     ],

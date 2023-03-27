@@ -32,4 +32,5 @@ apiHandler.getData = (req, res, next) => {
       });
     });
 };
+
 module.exports = apiHandler;
