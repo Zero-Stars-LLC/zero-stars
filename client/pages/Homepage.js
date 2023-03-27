@@ -19,6 +19,7 @@ const Homepage = () => {
   const getReviews = async (placeId) => {
     console.log('making fetch req')
     try {
+      console.log(placeId)
       const res = await fetch(`/api/${placeId}`)
       const data = await res.json();
       if (data) {
@@ -39,7 +40,7 @@ const Homepage = () => {
     <div className='bg-dark text-light'>
         <Navbar />
         <section className='header bg-dark text-light p-5 text-center'>
-          <div className='container bd-dark'>
+          <div className='container bg-dark'>
             <div className='container mb-5'> 
                 <h1>Zero Stars</h1>
                 <h4>Monitor your negative reviews.</h4>

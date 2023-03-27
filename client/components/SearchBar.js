@@ -23,10 +23,11 @@ const SearchBar = (props) => {
     <div className='SearchBar container d-flex justify-content-center'>
       <form className='SearchBarForm align-items-center mx-auto' onSubmit={onSubmit}>
         <div>
-        <label className='col-form-label'>Enter Your Place ID: </label>
+        <label className='col-form-label'>Enter Your Business Name: </label>
         <div>
-          <input className='form-control'
+          <input className='form-control ms-5'
             type='text'
+            placeholder='e.g. Sarabeths Central Park'
             onChange={(e) => setPlaceId(e.target.value)}
           />
         </div>
