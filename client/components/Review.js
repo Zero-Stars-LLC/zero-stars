@@ -2,16 +2,24 @@ import React, { useState } from 'react';
 
 const Review = (props) => {
   console.log('props.name: ', props.name);
+  const date = new Date(props.time * 1000).toLocaleString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric"
+  })
 
   return (
-    <div class='card text-start'>
-      <div class='card-header'>{props.relative_time}</div>
-      <div class='card-body'>
-        <h5 class='card-title'>Rating: {props.rating}</h5>
-        <p class='card-text fst-italic font-monospace'>
+    <div className='card text-start'>
+      <div className='card-header'>{date}</div>
+      <div className='card-body'>
+        <h5 className='card-title'>Rating: {props.rating}</h5>
+        <p className='card-text fst-italic font-monospace'>
           "{props.text}" -- {props.name}
         </p>
-        <a href={props.author_url} class='btn btn-danger'>
+        <a href={props.author_url} className='btn btn-danger'>
           More Info
         </a>
       </div>

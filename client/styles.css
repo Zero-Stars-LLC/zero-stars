@@ -1,26 +1,3 @@
-
-
-/* .header {
-    text-align: center;
-}
-*/
-
-.header h1 {
+h1 {
     font-size: 50px;
 }
-
-/* .SearchBar {
-    margin: 50px 0px 50px 0px;
-    text-align: center;
-} */
-
-/* .ResultsContainer {
-    display: flex;
-    justify-content: center;
-}
-
-.Results {
-    border: 5px solid grey;
-    height: 500px;
-    width: 80%;
-} */

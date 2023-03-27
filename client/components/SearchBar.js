@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const SearchBar = (props) => {
   // Set component level state to handle place Id
-  const [placeId, setPlaceId] = useState(0);
+  const [placeId, setPlaceId] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -21,13 +21,14 @@ const SearchBar = (props) => {
 
   return (
     <div className='SearchBar container d-flex justify-content-center'>
-      <form className='SearchBarForm align-items-center mx-auto' onSubmit={onSubmit}>
-        <div>
+      <form className='SearchBarForm container align-items-center' onSubmit={onSubmit}>
+        <div className='mx-auto' style={{width: "30%", minWidth: "300px"}}>
         <label className='col-form-label'>Enter Your Business Name: </label>
         <div>
-          <input className='form-control ms-5'
+          <input className='form-control'
             type='text'
             placeholder='e.g. Sarabeths Central Park'
+            // style={{width: "50%"}}
             onChange={(e) => setPlaceId(e.target.value)}
           />
         </div>

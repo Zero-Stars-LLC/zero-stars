@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const Login = () => {
   const [data, setData] = useState({
@@ -34,6 +35,8 @@ const Login = () => {
 
   const { username, password } = data;
   return (
+    <div className='bg-dark text-light'>
+      <Navbar />
     <div className='bg-dark text-light p-5 text-center'>
       <div className='container bg-dark mb-5'>
         <div className='container mb-5'>
@@ -84,6 +87,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 
