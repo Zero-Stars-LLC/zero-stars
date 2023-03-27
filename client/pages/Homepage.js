@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from '../components/SearchBar.js';
 import Results from '../components/Results.js';
+import Navbar from '../components/Navbar.js';
 
 const Homepage = () => {
   // Set page level state to hold reviews receieved
@@ -35,12 +36,20 @@ const Homepage = () => {
 
   return (
     <div>
-        <div className='header'> 
-            <h1>Zero Stars</h1>
-            <h4>You are better than your negative reviews.</h4>
-        </div>
-        <SearchBar getReviews={getReviews}/>
-        <Results reviews={reviews}/>
+        <Navbar />
+        <section className='header bg-dark text-light p-5 text-center'>
+          <div className='container bd-dark'>
+            <div className='container mb-5'> 
+                <h1>Zero Stars</h1>
+                <h4>Monitor your negative reviews.</h4>
+            </div>
+            {/* </section>
+            <section className='header bg-dark text-light p-5 text-center'> */}
+            <SearchBar getReviews={getReviews}/>
+            <Results reviews={reviews}/>
+            </div>
+          </section>
+        
     </div>
   );
 };

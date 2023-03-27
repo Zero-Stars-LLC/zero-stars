@@ -9,15 +9,18 @@ const Results = (props) => {
         )
         review.push(<Review name={props.reviews[i].author_name}
             text={props.reviews[i].text}
+            author_url={props.reviews[i].author_url}
+            rating={props.reviews[i].rating}
+            time={props.reviews[i].time}
         />)
     }
 
   return (
-    <div className='ResultsContainer'>
-        <div className='Results'>
-        {review}
-        </div>
+    <section className='header bg-dark text-light p-5'> 
+    <div className='ResultsContainer container'>
+      {review}
     </div>
+    </section>
   );
 };
 
