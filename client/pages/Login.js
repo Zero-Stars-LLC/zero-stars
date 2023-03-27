@@ -22,10 +22,11 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data) {
-          console.log(data);
+        if (data.value) {
           navigate('/homepage');
           // return redirect('/homepage');
+        } else {
+          alert('Please enter a valid username and/or password.');
         }
       })
       .catch((err) => {
@@ -35,59 +36,59 @@ const Login = () => {
 
   const { username, password } = data;
   return (
-    <div className='bg-dark text-light'>
+    <div className="bg-dark text-light">
       <Navbar />
-    <div className='bg-dark text-light p-5 text-center'>
-      <div className='container bg-dark mb-5'>
-        <div className='container mb-5'>
-          <h1>Zero Stars</h1>
-          <h4>Monitor your negative reviews.</h4>
-        </div>
-        <div className='Login container'>
-          <div className='mb-4'>
-          <h3>Login</h3>
+      <div className="bg-dark text-light p-5 text-center">
+        <div className="container bg-dark mb-5">
+          <div className="container mb-5">
+            <h1>Zero Stars</h1>
+            <h4>Monitor your negative reviews.</h4>
           </div>
-          <div className='Login container d-flex justify-content-center'>
-            <form
-              className='align-items-center mx-auto'
-              onSubmit={handleSubmit}
-            >
-              <div>
-                <label className='col-form-label'>
-                  Username:
-                  <input
-                    className='form-control mb-4'
-                    type='text'
-                    name='username'
-                    value={username}
-                    onChange={handleChange}
-                  />
-                </label>
-              </div>
-              <div>
-                <label>
-                  Password:
-                  <input
-                    className='form-control mb-4'
-                    type='password'
-                    name='password'
-                    value={password}
-                    onChange={handleChange}
-                  />
-                </label>
-              </div>
-              <input
-                className='btn btn-danger'
-                type='submit'
-                name='submit'
-                value='Login'
-              />
-            </form>
+          <div className="Login container">
+            <div className="mb-4">
+              <h3>Login</h3>
+            </div>
+            <div className="Login container d-flex justify-content-center">
+              <form
+                className="align-items-center mx-auto"
+                onSubmit={handleSubmit}
+              >
+                <div>
+                  <label className="col-form-label">
+                    Username:
+                    <input
+                      className="form-control mb-4"
+                      type="text"
+                      name="username"
+                      value={username}
+                      onChange={handleChange}
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    Password:
+                    <input
+                      className="form-control mb-4"
+                      type="password"
+                      name="password"
+                      value={password}
+                      onChange={handleChange}
+                    />
+                  </label>
+                </div>
+                <input
+                  className="btn btn-danger"
+                  type="submit"
+                  name="submit"
+                  value="Login"
+                />
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   );
 };
 
