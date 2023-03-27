@@ -5,30 +5,22 @@ import Navbar from '../components/Navbar.js';
 
 const Homepage = () => {
   // Set page level state to hold reviews receieved
-  const [reviews, setReviews] = useState([{
-    author_name: '',
-    author_url: '',
-    profile_photo_url: '',
-    rating: '',
-    text: '',
-    time: '',
-    relative_time: ''
-  }]);
+  const [reviews, setReviews] = useState([]);
+  const [received, setReceived] = useState(false);
 
   // Get reviews
   const getReviews = async (placeId) => {
     console.log('making fetch req')
     try {
+      console.log(placeId)
       const res = await fetch(`/api/${placeId}`)
       const data = await res.json();
       if (data) {
-        console.log(data)
-        const newState = reviews.slice();
-        data.forEach(el => {
-            newState.push(el)
-        })
-        setReviews(newState)
-        console.log('reviews: ', reviews)
+        console.log('time: ', data.time)
+        // Update state to the received array
+        setReviews(data);
+        setReceived(true);
+        console.log('recieved: ', received)
       }
     } catch(err) {
       console.log(err);
@@ -37,9 +29,9 @@ const Homepage = () => {
 
   return (
     <div className='bg-dark text-light'>
-        <Navbar />
+        <Navbar loggedIn={true}/>
         <section className='header bg-dark text-light p-5 text-center'>
-          <div className='container bd-dark'>
+          <div className='container bg-dark'>
             <div className='container mb-5'> 
                 <h1>Zero Stars</h1>
                 <h4>Monitor your negative reviews.</h4>
@@ -47,7 +39,7 @@ const Homepage = () => {
             {/* </section>
             <section className='header bg-dark text-light p-5 text-center'> */}
             <SearchBar getReviews={getReviews}/>
-            <Results reviews={reviews}/>
+            <Results received={received} reviews={reviews}/>
             </div>
           </section>
         

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const Login = () => {
   const [data, setData] = useState({
@@ -34,33 +35,59 @@ const Login = () => {
 
   const { username, password } = data;
   return (
-    <>
-      <h3>Login</h3>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-
-        <br />
-        <input type="submit" name="submit" />
-      </form>
-    </>
+    <div className='bg-dark text-light'>
+      <Navbar />
+    <div className='bg-dark text-light p-5 text-center'>
+      <div className='container bg-dark mb-5'>
+        <div className='container mb-5'>
+          <h1>Zero Stars</h1>
+          <h4>Monitor your negative reviews.</h4>
+        </div>
+        <div className='Login container'>
+          <div className='mb-4'>
+          <h3>Login</h3>
+          </div>
+          <div className='Login container d-flex justify-content-center'>
+            <form
+              className='align-items-center mx-auto'
+              onSubmit={handleSubmit}
+            >
+              <div>
+                <label className='col-form-label'>
+                  Username:
+                  <input
+                    className='form-control mb-4'
+                    type='text'
+                    name='username'
+                    value={username}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
+              <div>
+                <label>
+                  Password:
+                  <input
+                    className='form-control mb-4'
+                    type='password'
+                    name='password'
+                    value={password}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
+              <input
+                className='btn btn-danger'
+                type='submit'
+                name='submit'
+                value='Login'
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   );
 };
 

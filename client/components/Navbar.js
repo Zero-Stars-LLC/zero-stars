@@ -7,8 +7,8 @@ const Navbar = (props) => {
         <div className='collapse navbar-collapse'>
           <ul className='navbar-nav ms-auto'>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
-                Log Out
+              <a className='nav-link' href='/'>
+                {props.loggedIn ?  'Log Out' : 'Home'}
               </a>
             </li>
           </ul>
