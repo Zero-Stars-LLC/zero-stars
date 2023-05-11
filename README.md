@@ -4,17 +4,17 @@ zero-stars is an open-source, full-stack application built with React and Expres
 # Open Source Information
 We encourage you to submit issues for any bugs or ideas for enhancements. Please feel free to fork this repo and submit pull requests to contribute as well. Some ideas for future contributions include:
 - Visualizing businesses on a map
-- Thorough unit and integration testing
+- Ability to save reviews or businesses to a user
 
 # Changelog
 v1.0: initial release March 24, 2023
 
 # Contributor Information
-Joe Ostrow https://github.com/JSTRO
-Jacob Alarcon https://github.com/jacobalarcon
-Emily Johl https://github.com/emilyjohl
-Jay Salgado https://github.com/Jaysalgado
-Olivia Hodel https://github.com/ohodel
+- Joe Ostrow https://github.com/JSTRO
+- Jacob Alarcon https://github.com/jacobalarcon
+- Emily Johl https://github.com/emilyjohl
+- Jay Salgado https://github.com/Jaysalgado
+- Olivia Hodel https://github.com/ohodel
 
 # License Information
 This project is licensed under the MIT License - see the LICENSE.md file for details
